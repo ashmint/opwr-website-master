@@ -1,0 +1,133 @@
+---
+title: Server Resource Calculator | OpenWire
+excerpt: "Calculate resource requirements for your Vapor server."
+---
+<!DOCTYPE html>
+<html lang="zxx">
+
+{% include "../_components/head.njk" %}
+
+<body>
+
+    <!-- wrapper -->
+    <div class="mil-wrapper" id="top">
+
+        {% include "../_components/common-top.njk" %}
+
+
+        <!-- content -->
+        <div class="mil-content">
+            <div id="swupMain" class="mil-main-transition">
+
+                <!-- banner -->
+                <div class="mil-inner-banner mil-p-0-120">
+                    <div class="mil-banner-content mil-center mil-up">
+                        <div class="container">
+                            <ul class="mil-breadcrumbs mil-center mil-mb-60">
+                                <li><a href="/">Homepage</a></li>
+                                <li><a href="/tools/server-calculator">Server Resource Calculator</a></li>
+                            </ul>
+                            <h1 class="mil-mb-60">Server <br/><span class="mil-thin">Resource Calculator</span></h1>
+                            <a href="#calculator" class="mil-link mil-dark mil-arrow-place mil-down-arrow">
+                                <span>Calculate</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- banner end -->
+
+                <!-- map -->
+                <div class="mil-map-frame mil-up">
+                    <img src="/assets/img/photo/server.webp" alt="server">
+                </div>
+                <!-- map end -->
+
+                <!-- contact form -->
+                <section id="calculator">
+                    <div class="container mil-p-120-90">
+                        <h3 class="mil-center mil-up mil-mb-120">Let's <span class="mil-thin">Calculate</span></h3>
+                        <form class="row justify-content-between" id="server-calculator" onsubmit="calculate(); return false;">
+                            <div class="col-lg-6 mil-up mb-5">
+                                <div class="form-group mb-3">
+                                    <label for="tier1">Number of Tier 1 Users:</label>
+                                    <input type="number" min="0" max="30" class="form-control" id="tier1" aria-describedby="tier1Help" value="0">
+                                    <small id="tier1Help" class="form-text text-muted">MS Office, Tally, Web Browser, ERP</small>
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label for="tier2">Number of Tier 2 Users:</label>
+                                    <input type="number" min="0" max="20" class="form-control" id="tier2" aria-describedby="tier2Help" value="0">
+                                    <small id="tier2Help" class="form-text text-muted">Photoshop, Coral Draw</small>
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label for="tier3">Number of Tier 3 Users:</label>
+                                    <input type="number" min="0" max="15" class="form-control" id="tier3" aria-describedby="tier3Help" value="0">
+                                    <small id="tier3Help" class="form-text text-muted">Video Editing, 3D Modeling</small>
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label for="performanceLevel">Performance Level:</label>
+                                    <input type="range" min="0" max="2" class="form-control" id="performanceLevel" aria-describedby="performanceLevelHelp" value="1" style="padding:0;">
+                                    <div class="row justify-content-between">
+                                        <span class="col">Low</span>
+                                        <span class="col" style="text-align:center;">Medium</span>
+                                        <span class="col" style="text-align:right;">High</span>
+                                    </div>
+                                </div>
+                                <div class="mil-adaptive-right mil-up mil-mb-30 mt-5">
+                                    <button type="submit" class="mil-button mil-arrow-place">
+                                        <span>Calculate</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="col-lg-5 mil-up d-none" id="results">
+                                <h4 class="row">Server Configuration</h4>
+                                <div class="row mt-5">
+                                    <div class="col-3 p-0">
+                                        <h5>CPU</h5>
+                                    </div>
+                                    <div class="col p-0" id="cpu"></div>
+                                </div>
+                                <div class="row mt-4">
+                                    <div class="col-3 p-0">
+                                        <h5>Memory</h5>
+                                    </div>
+                                    <div class="col p-0" id="memory"></div>
+                                </div>
+                                <div class="row mt-4">
+                                    <div class="col-3 p-0">
+                                        <h5>GPU</h5>
+                                    </div>
+                                    <div class="col p-0" id="gpu"></div>
+                                </div>
+                                <div class="row mt-4">
+                                    <p class="mil-up mil-mb-30 p-0"><span class="mil-accent">*</span> Suggestions are based on estimates, contact an authorized dealer for a personalized calculation.</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-5 mil-up" id="placeholder">
+                                <img src="/assets/img/photo/server-2.webp" alt="server calculator">
+                            </div>
+                        </form>
+                    </div>
+                </section>
+                <!-- contact form end -->
+
+                <!-- footer -->
+                {% include "../_components/footer.njk" %}
+                <!-- footer end -->
+
+                <!-- hidden elements -->
+                {% include "../_components/hidden-elements.njk" %}
+                <!-- hidden elements end -->
+
+            </div>
+        </div>
+        <!-- content -->
+    </div>
+    <!-- wrapper end -->
+
+    {% include "../_components/scripts.njk" %}
+    
+    <!-- server calculator js -->
+    <script src="/assets/js/calculators/server.js"></script>
+</body>
+
+</html>

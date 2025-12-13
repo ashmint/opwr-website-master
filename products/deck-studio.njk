@@ -1,0 +1,102 @@
+---
+title: Deck Studio | OpenWire
+---
+<!DOCTYPE html>
+<html lang="zxx">
+
+{% include "../_components/head.njk" %}
+
+<body>
+
+    <!-- wrapper -->
+    <div class="mil-wrapper" id="top">
+
+        {% include "../_components/common-top.njk" %}
+
+        <!-- content -->
+        <div class="mil-content">
+            <div id="swupMain" class="mil-main-transition">
+
+                <!-- banner -->
+                <div class="mil-inner-banner">
+                    <div class="mil-banner-content mil-up">
+                        <div class="mil-animation-frame">
+                            <div class="mil-animation mil-position-4 mil-dark mil-scale" data-value-1="6" data-value-2="1.4"></div>
+                        </div>
+                        <div class="container">
+                            <ul class="mil-breadcrumbs mil-mb-60">
+                                <li><a href="/">Homepage</a></li>
+                                <li><a href="/products/">Products</a></li>
+                                <li><a href="deck-studio">Deck Studio</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- banner end -->
+
+                <!-- service -->
+                <section id="service">
+                    <div class="container mil-p-120-90">
+                        <div class="row justify-content-between">
+                            <div class="col-lg-6 mil-relative mil-mb-90">
+                                <h1 class="mil-mb-60">Deck <span class="mil-thin">Studio</span></h1>
+                                <h4 class="mil-up mil-mb-30">All-in-one <span class="mil-thin">perfection</span></h4>
+                                <p class="mil-up mil-mb-30">The Deck studio All-in-one PC offers a sleek and stylish solution, combining the power of a traditional desktop with the elegance of a ultra high quality monitor in one unified unit. Enjoy a cleaner, more modern aesthetic that promotes focus and productivity. The all-in-one design creates a clutter-free environment, allowing you to work comfortably and efficiently.</p>
+                                {% macro keypoints(title,content) -%}
+                                <div class="mil-accordion-group mil-up">
+                                    <div class="mil-accordion-menu">
+
+                                        <p class="mil-accordion-head">{{ title }}</p>
+
+                                        <div class="mil-symbol mil-h3">
+                                            <div class="mil-plus">+</div>
+                                            <div class="mil-minus">-</div>
+                                        </div>
+
+                                    </div>
+                                    <div class="mil-accordion-content">
+                                        <p class="mil-mb-30">{{ content }}</p>
+                                    </div>
+                                </div>
+                                {%- endmacro %}
+                                <div class="mt-5">
+                                    {{ keypoints("Highly Customizable", "Unlike most all-in-one PCs, ours offer exceptional flexibility. Choose from a range of pre-configured options or customize the specifications to perfectly match your needs.") }}
+
+                                    {{ keypoints("Powerhouse Pair", "Discover the ultimate blend of form and function with the Deck Studio, featuring a breathtaking display and dual speakers, perfect for both home and work. Crystal-clear visuals and high performance, makes it ideal for productivity and entertainment alike.") }}
+                                </div>
+                                <div class="mil-up mil-adaptive-right">
+                                    <a href="https://docs.openwire.in/docs/datasheets/deck-studio" target="_blank" class="mil-link mil-dark mil-arrow-place" data-no-swup>
+                                        <span>Datasheet</span>
+                                    </a>
+                                </div>
+
+                            </div>
+                            <div class="col-lg-4">
+                               <div class="mil-up mil-img-frame" >
+                                    <img src="/assets/img/products/deck-studio-2.webp" alt="img" class="mil-scale" data-value-1="1" data-value-2="1.2">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- service end -->
+
+                <!-- footer -->
+                {% include "../_components/footer.njk" %}
+                <!-- footer end -->
+
+                <!-- hidden elements -->
+                {% include "../_components/hidden-elements.njk" %}
+                <!-- hidden elements end -->
+
+            </div>
+        </div>
+        <!-- content -->
+    </div>
+    <!-- wrapper end -->
+
+    {% include "../_components/scripts.njk" %}
+
+</body>
+
+</html>

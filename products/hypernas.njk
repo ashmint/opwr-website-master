@@ -1,0 +1,101 @@
+---
+title: HyperNAS | OpenWire
+---
+<!DOCTYPE html>
+<html lang="zxx">
+
+{% include "../_components/head.njk" %}
+
+<body>
+
+    <!-- wrapper -->
+    <div class="mil-wrapper" id="top">
+
+        {% include "../_components/common-top.njk" %}
+
+        <!-- content -->
+        <div class="mil-content">
+            <div id="swupMain" class="mil-main-transition">
+
+                <!-- banner -->
+                <div class="mil-inner-banner">
+                    <div class="mil-banner-content mil-up">
+                        <div class="mil-animation-frame">
+                            <div class="mil-animation mil-position-4 mil-dark mil-scale" data-value-1="6" data-value-2="1.4"></div>
+                        </div>
+                        <div class="container">
+                            <ul class="mil-breadcrumbs mil-mb-60">
+                                <li><a href="/">Homepage</a></li>
+                                <li><a href="/products/">Products</a></li>
+                                <li><a href="hypernas">HyperNas</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- banner end -->
+
+                <!-- service -->
+                <section id="service">
+                    <div class="container mil-p-120-90">
+                        <div class="row justify-content-between">
+                            <div class="col-lg-6 mil-relative mil-mb-90">
+                                <h1 class="mil-mb-60">Hyper<span class="mil-thin">Nas</span></h1>
+                                <h4 class="mil-up mil-mb-30">Conquer <span class="mil-thin">Data Management Challenges</span> <br/></h4>
+                                <p class="mil-up mil-mb-30">The HyperNAS empowers businesses to streamline data management and unlock a new era of collaboration. This innovative solution centralizes file storage, eliminating scattered data and simplifying access for your entire team. Robust security features safeguard your confidential information, while automatic backups ensure seamless disaster recovery, giving you peace of mind. The HyperNAS represents a user-friendly and cost-effective approach to achieving high-performance data storage. It's the perfect solution for businesses seeking to optimize their data management landscape and unlock new levels of efficiency.</p>
+                                {% macro keypoints(title,content) -%}
+                                <div class="mil-accordion-group mil-up">
+                                    <div class="mil-accordion-menu">
+
+                                        <p class="mil-accordion-head">{{ title }}</p>
+
+                                        <div class="mil-symbol mil-h3">
+                                            <div class="mil-plus">+</div>
+                                            <div class="mil-minus">-</div>
+                                        </div>
+
+                                    </div>
+                                    <div class="mil-accordion-content">
+                                        <p class="mil-mb-30">{{ content }}</p>
+                                    </div>
+                                </div>
+                                {%- endmacro %}
+                                <div class="mt-5">
+                                    {{ keypoints("Data on Demand", "The HyperNAS seamlessly scales alongside your growing data needs, ensuring your storage solution remains adaptable. Additionally, the NAS facilitates secure remote access, empowering your workforce to remain productive from anywhere.") }}
+                                    {{ keypoints("NAS Redefined", "Level up your workplace! The HyperNAS includes powerful features specifically designed to enhance business workflows. Experience a smoother, more collaborative work environment.") }}
+                                </div>
+                                <div class="mil-up mil-adaptive-right">
+                                    <a href="https://docs.openwire.in/docs/datasheets/hypernas" target="_blank" class="mil-link mil-dark mil-arrow-place" data-no-swup>
+                                        <span>Datasheet</span>
+                                    </a>
+                                </div>
+
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="mil-up mil-img-frame" style="padding-bottom: 160%;">
+                                    <img src="/assets/img/products/hypernas-2.webp" alt="img" class="mil-scale" data-value-1="1" data-value-2="1.2">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- service end -->
+
+                <!-- footer -->
+                {% include "../_components/footer.njk" %}
+                <!-- footer end -->
+
+                <!-- hidden elements -->
+                {% include "../_components/hidden-elements.njk" %}
+                <!-- hidden elements end -->
+
+            </div>
+        </div>
+        <!-- content -->
+    </div>
+    <!-- wrapper end -->
+
+    {% include "../_components/scripts.njk" %}
+
+</body>
+
+</html>

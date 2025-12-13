@@ -1,0 +1,110 @@
+---
+title: Resellers | OpenWire
+---
+<!DOCTYPE html>
+<html lang="zxx">
+
+{% include "../_components/head.njk" %}
+
+<body>
+
+    <!-- wrapper -->
+    <div class="mil-wrapper" id="top">
+
+        {% include "../_components/common-top.njk" %}
+
+        <!-- content -->
+        <div class="mil-content">
+            <div id="swupMain" class="mil-main-transition">
+
+                <!-- banner -->
+                <div class="mil-inner-banner">
+                    <div class="mil-banner-content mil-up">
+                        <div class="mil-animation-frame">
+                            <div class="mil-animation mil-position-4 mil-dark mil-scale" data-value-1="6" data-value-2="1.4"></div>
+                        </div>
+                        <div class="container">
+                            <ul class="mil-breadcrumbs mil-mb-60">
+                                <li><a href="/">Homepage</a></li>
+                                <li><a href="/resellers/">Authorized Resellers</a></li>
+                            </ul>
+                            <h1 class="mil-mb-60">Delivering <br> Your <span class="mil-thin">Dreams Through Trust</span></h1>
+                            <a href="#resellers" class="mil-link mil-dark mil-arrow-place mil-down-arrow">
+                                <span>Our Authorized Resellers</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- banner end -->
+
+                <!-- resellers -->
+                <section id="resellers">
+                    <div class="container mil-resellers mil-p-120-60">
+                        <div class="row justify-content-between align-items-center">
+                            {% macro reseller(name, image, address, url, email, phone) -%}
+                            <div class="col-md-6">
+                                <a href="{{ url }}" class="mil-resellers-item mil-more mil-mb-60" data-no-swup>
+                                    <div class="mil-cover-frame mil-vert mil-up mil-mb-20">
+                                        <div class="mil-cover">
+                                            <img src="/assets/img/resellers/{{ image }}.webp" alt="cover" class="img-fluid">
+                                        </div>
+                                    </div>
+                                    <div class="mil-descr">
+                                        <h4 class="mil-up mil-mb-20">{{ name }}</h4>
+                                        <p class="mil-mb-30">
+                                            {{ address }}
+                                            <br />
+                                            Email id: <a href="mailto:{{ email }}" data-no-swup>{{ email }}</a>
+                                            <br />
+                                            {% set comma = joiner(", ") -%}
+                                            Phone:
+                                            {% for p in phone -%}
+                                            {{ comma() }}<a href="tel:{{ p }}" data-no-swup>{{ p }}</a>
+                                            {%- endfor %}.
+                                        </p>
+                                    </div>
+                                </a>
+                            </div>
+                            {% endmacro -%}
+                            {{ reseller("Teqsol Traders Pvt Ltd.", "teqsol", "CK Tower, Mattakadu, North Kalamassery, Kochi - 683503", "https://teqsol.in", "mail@teqsol.in", ["+919895132518", "+918089332678"]) }}
+                            {{ reseller("Technics Technovision LLP", "technics", "33/1303 B2, Vennala PO, Kochi - 682028", "https://technicstech.in", "contact@technicstech.in", ["+918137989992", "+919895089804"]) }}
+                        </div>
+                    </div>
+                </section>
+                <!-- resellers end -->
+
+                <!-- call to action -->
+                <section class="mil-soft-bg">
+                    <div class="container mil-p-120-120">
+                        <div class="row">
+                            <div class="col-lg-10">
+                                <span class="mil-suptitle mil-suptitle-right mil-suptitle-dark mil-up">Looking to make your mark? We'll help you turn <br> your business into a success story.</span>
+                            </div>
+                        </div>
+                        <div class="mil-center">
+                            <h2 class="mil-up mil-mb-60">Ready to bring your <span class="mil-thin">ideas to</span> life? <br> We're <span class="mil-thin">here to help</span></h2>
+                            <div class="mil-up"><a href="/contact/" class="mil-button mil-arrow-place"><span>Contact us</span></a></div>
+                        </div>
+                    </div>
+                </section>
+                <!-- call to action end -->
+
+                <!-- footer -->
+                {% include "../_components/footer.njk" %}
+                <!-- footer end -->
+
+                <!-- hidden elements -->
+                {% include "../_components/hidden-elements.njk" %}
+                <!-- hidden elements end -->
+
+            </div>
+        </div>
+        <!-- content -->
+    </div>
+    <!-- wrapper end -->
+
+    {% include "../_components/scripts.njk" %}
+
+</body>
+
+</html>

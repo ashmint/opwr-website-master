@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.0"
+   width="150.39279"
+   height="149.85954"
+   viewBox="0 0 150.39279 149.85954"
+   preserveAspectRatio="xMidYMid meet"
+   id="svg24"
+   sodipodi:docname="openwire_logo_without_text.svg"
+   inkscape:version="1.0.2 (e86c870879, 2021-01-15, custom)">
+  <metadata
+     id="metadata30">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs28" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="996"
+     id="namedview26"
+     showgrid="false"
+    inkscape:zoom="1.9109063"
+     inkscape:cx="318.9395"
+     inkscape:cy="75.106419"
+     inkscape:window-x="1920"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg24" />
+  <path
+     d="m 62.4395,148.70642 c -28.8,-5.4 -51.4,-25.5 -59.5000002,-53.100001 -5.2,-17.5 -3.39999995,-37.6 4.6,-53.7 4.0000002,-7.9 5.6000002,-9.8 8.4000002,-9.8 2.9,0 4,1.4 5.8,7.5 2.1,7 9.5,26.8 17.9,47.5 3.8,9.6 7.4,18.600001 7.9,19.900001 0.5,1.3 1.2,2.1 1.5,1.9 0.2,-0.3 5,-14.000001 10.5,-30.400001 9.8,-29.5 12.1,-34.4 16,-34.4 4.1,0 6.8,4.3 11.7,19 11.7,34.8 15.7,45.900001 16.3,45.200001 0.4,-0.4 5.7,-12.400001 11.9,-26.700001 6.1,-14.3 12.5,-29 14.2,-32.7 2,-4.4 2.8,-7.5 2.4,-9.1 -1,-4 -13.1,-16.2 -20.8,-21 -20,-12.3999998 -43.8,-13.7999998 -65.1,-3.7 -7.5,3.5 -7.9,3.6 -10.1,1.1 -2.6,-2.9 -0.7,-5.5 6.7,-9.0999998 14.8,-7.09999998 35.1,-9.1 51.3,-5 17.3,4.4 33.6,15.8999998 43.9,30.8999998 l 4.8,7 -2.1,5.3 c -1.1,2.9 -6.4,15.9 -11.7,28.8 -5.3,12.9 -11.2,27.500001 -13.2,32.500001 -5,12.7 -7,16.4 -9.8,17.7 -2.8,1.3 -7.4,-0.2 -9.1,-3 -0.6,-0.9 -5.5,-15.1 -10.9,-31.400001 -5.5,-16.3 -10.1,-29.5 -10.4,-29.3 -0.4,0.5 -10.4,30.5 -15.7,47.200001 -4.8,15.5 -8.2,19.2 -14.7,16.2 -2.4,-1.1 -4.3,-5.4 -24.3,-56.400001 -3.6,-9.3 -6.8,-17.2 -6.9,-17.4 -0.8,-0.7 -3.3,6.8 -4.4000002,13 -2.4,13.7 -0.5,27 5.7000002,40.100001 7.9,16.9 22.9,29.6 41.7,35.4 8.4,2.5 28.6,2.5 37,0 7,-2.2 17.9,-7.5 21.5,-10.5 14.8,-12.7 22.4,-24.9 25.7,-41.600001 1.8,-9.4 3.5,-11.5 7.4,-9.4 2,1 2.1,1.7 1.6,7.3 -1.1,11.8 -7.2,26.200001 -15.5,36.600001 -17.1,21.5 -45.8,32.5 -72.2,27.6 z"
+     id="path2"
+     style="fill:#ffffff" />
+</svg>

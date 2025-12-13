@@ -1,0 +1,165 @@
+---
+title: RAID Capacity Calculator | OpenWire
+excerpt: "Calculate RAID capacity for given HyperNAS configuration."
+eleventyExcludeFromCollections: true
+---
+<!DOCTYPE html>
+<html lang="zxx">
+
+{% include "../_components/head.njk" %}
+
+<body>
+    <!-- Custom Styles -->
+    <style>
+        .choice-block p {
+            border: 2px solid #ccc;
+            cursor: pointer;
+            text-align: center
+        }
+        .choice-block.active p {
+            border: 2px solid #ff9800;
+        }
+    </style>
+
+    <!-- wrapper -->
+    <div class="mil-wrapper" id="top">
+
+        {% include "../_components/common-top.njk" %}
+
+
+        <!-- content -->
+        <div class="mil-content">
+            <div id="swupMain" class="mil-main-transition">
+
+                <!-- banner -->
+                <div class="mil-inner-banner mil-p-0-120">
+                    <div class="mil-banner-content mil-center mil-up">
+                        <div class="container">
+                            <ul class="mil-breadcrumbs mil-center mil-mb-60">
+                                <li><a href="/">Homepage</a></li>
+                                <li><a href="/tools/raid-calculator">RAID Capacity Calculator</a></li>
+                            </ul>
+                            <h1 class="mil-mb-60">RAID <br/><span class="mil-thin">Capacity Calculator</span></h1>
+                            <a href="#calculator" class="mil-link mil-dark mil-arrow-place mil-down-arrow">
+                                <span>Calculate</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- banner end -->
+
+                <!-- map -->
+                <div class="mil-map-frame mil-up">
+                    <img src="/assets/img/photo/server.webp" alt="server">
+                </div>
+                <!-- map end -->
+
+                <!-- contact form -->
+                <section id="calculator">
+                    <div class="container mil-p-120-90">
+                        <h3 class="mil-center mil-up mil-mb-120">Let's <span class="mil-thin">Calculate</span></h3>
+                        <form class="row justify-content-between" id="server-calculator" onsubmit="calculate(); return false;">
+                            <div class="col-lg-6 mil-up mb-5">
+                                <!-- RAID Type -->
+                                <h6>RAID Type</h6>
+                                <div class="row my-1 mb-4" id="raid">
+                                    {% macro raid(text) %}
+                                    <div class="choice-block col-4 col-md-3 my-2" data-value="{{ text }}">
+                                        <p class="p-2">{{ text }}</p>
+                                    </div>
+                                    {% endmacro %}
+                                    {% for type in ["JBOD", "RAID 0", "RAID 1", "RAID 5", "RAID 6", "RAID 10"] %}
+                                        {{ raid(type) }}
+                                    {% endfor %}
+                                </div>
+
+                                <!-- Disks (HDD) -->
+                                <h6>Disks (HDD)</h6>
+                                <div class="row my-1 mb-4" id="disks">
+                                    {% macro hdd(capacity) %}
+                                    <div class="choice-block col-4 col-md-3 my-2" data-value="{{ capacity }}">
+                                        <p class="p-2">{{ capacity }}</p>
+                                    </div>
+                                    {% endmacro %}
+                                    {% for capacity in ["1 TB","2 TB","3 TB","4 TB","6 TB","8 TB","10 TB","12 TB","14 TB","16 TB"] %}
+                                        {{ hdd(capacity) }}
+                                    {% endfor %}
+                                </div>
+
+                                <!-- Disks (SSD) -->
+                                <h6>Disks (SSD)</h6>
+                                <div class="row my-1 mb-4" id="disks">
+                                    {% macro ssd(capacity) %}
+                                    <div class="choice-block col-4 col-md-3 my-2" data-value="{{ capacity }}">
+                                        <p class="p-2">{{ capacity }}</p>
+                                    </div>
+                                    {% endmacro %}
+                                    {% for capacity in ["240 GB", "480 GB", "960 GB", "1.92 TB", "3.84 TB"] %}
+                                        {{ ssd(capacity) }}
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <div class="col-lg-5 mil-up">
+                                <h4 class="row">RAID Configuration</h4>
+
+                                <!-- Disk Layout -->
+                                <h5 class="mt-5 row">Disk Layout</h5>
+                                <div class="row mt-1" id="layout">
+                                </div>
+                                <p class="row" id="result-error"></p>
+                                <div id="result" class="d-none">
+                                    <div class="row mt-5">
+                                        <div class="col-6 p-0">
+                                            <h5>Storage Capacity</h5>
+                                        </div>
+                                        <div class="col p-0" id="result-capacity">
+                                            <p>0 GB</p>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-2">
+                                        <div class="col-6 p-0">
+                                            <h5>Data Redundancy</h5>
+                                        </div>
+                                        <div class="col p-0" id="result-protection">
+                                            <p>0 GB</p>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-2">
+                                        <div class="col-6 p-0">
+                                            <h5>Data Unusable</h5>
+                                        </div>
+                                        <div class="col p-0" id="result-unused">
+                                            <p>0 GB</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mt-4">
+                                    <p class="mil-up mil-mb-30 p-0"><span class="mil-accent">*</span> Calculation is based on standard RAID configuration. Actual capacity may vary.</p>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+                <!-- contact form end -->
+
+                <!-- footer -->
+                {% include "../_components/footer.njk" %}
+                <!-- footer end -->
+
+                <!-- hidden elements -->
+                {% include "../_components/hidden-elements.njk" %}
+                <!-- hidden elements end -->
+
+            </div>
+        </div>
+        <!-- content -->
+    </div>
+    <!-- wrapper end -->
+
+    {% include "../_components/scripts.njk" %}
+    
+    <!-- server calculator js -->
+    <script src="/assets/js/calculators/raid.js"></script>
+</body>
+
+</html>

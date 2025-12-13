@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+{% include "../_components/head.njk" %}
+
+<body>
+
+    <!-- wrapper -->
+    <div class="mil-wrapper" id="top">
+
+        {% include "../_components/common-top.njk" %}
+
+        <!-- content -->
+        <div class="mil-content">
+            <div id="swupMain" class="mil-main-transition">
+
+                <!-- banner -->
+                <div class="mil-inner-banner mil-p-0-120">
+                    <div class="mil-banner-content mil-up">
+                        <div class="mil-animation-frame">
+                            <div class="mil-animation mil-position-4 mil-dark mil-scale" data-value-1="6" data-value-2="1.4"></div>
+                        </div>
+                        <div class="container">
+                            <ul class="mil-breadcrumbs mil-mb-60">
+                                <li><a href="/">Homepage</a></li>
+                                <li><a href="/blog/">Blog</a></li>
+                            </ul>
+                            <h1 class="mil-mb-60">Exploring <span class="mil-thin">the World</span> <br> Through Our <span class="mil-thin">Blog</span></h1>
+                            <a href="#blog" class="mil-link mil-dark mil-arrow-place mil-down-arrow">
+                                <span>Publications</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- banner end -->
+
+                <!-- blog -->
+                <section id="blog">
+                    <div class="container mil-p-120-120">
+                        <div class="row align-items-center mil-mb-30">
+                            <div class="col-lg-4 mil-mb-30">
+                                <h3 class="mil-up">Categories:</h3>
+                            </div>
+                            <div class="col-lg-8 mil-mb-30">
+                                <div class="mil-adaptive-right mil-up">
+
+                                    <ul class="mil-category-list">
+                                        <li><a href="#" class="mil-active">Case Studies</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <a href="/blog/bharatiya-vidhya-bhavan/" class="mil-blog-card mil-blog-card-hori mil-more mil-mb-60">
+                                    <div class="mil-cover-frame mil-up">
+                                        <img src="/assets/img/blog/bharatiya-vidhya-bhavan.webp" alt="cover">
+                                    </div>
+                                    <div class="mil-post-descr">
+                                        <div class="mil-labels mil-up mil-mb-30">
+                                            <div class="mil-label mil-upper mil-accent">Case Study</div>
+                                            <div class="mil-label mil-upper">December 2023</div>
+                                        </div>
+                                        <h4 class="mil-up mil-mb-30">Bhartiya Vidya Bhavan: Enhancing Learning Experience</h4>
+                                        <p class="mil-post-text mil-up mil-mb-30">
+                                            Bharatiya Vidya Bhavan sought a cost-effective and reliable computing
+                                            solution to support their computer labs across six schools in Kochi, Kerala.
+                                            The institution aimed to reduce the burden of maintaining and managing
+                                            traditional desktop computers, while simultaneously ensuring seamless
+                                            performance for their students.
+                                        </p>
+                                        <div class="mil-link mil-dark mil-arrow-place mil-up">
+                                            <span>Read more</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-lg-12">
+
+                                <a href="/blog/greentech-builders/" class="mil-blog-card mil-blog-card-hori mil-more mil-mb-60">
+                                    <div class="mil-cover-frame mil-up">
+                                        <img src="/assets/img/blog/greentech-builders.webp" alt="cover">
+                                    </div>
+                                    <div class="mil-post-descr">
+                                        <div class="mil-labels mil-up mil-mb-30">
+                                            <div class="mil-label mil-upper mil-accent">Case Study</div>
+                                            <div class="mil-label mil-upper">December 2023</div>
+                                        </div>
+                                        <h4 class="mil-up mil-mb-30">Greentech Builders & Developers: Enhanced Performance, Security, and Cost Savings</h4>
+                                        <p class="mil-post-text mil-up mil-mb-30">
+                                            OpenWire partnered with Greentech Builders & Developers, a renowned
+                                            construction company in India, to provide them with a cost-effective and
+                                            secure computing infrastructure that would empower their team of architects,
+                                            engineers, and designers to work seamlessly on demanding CAD software and 3D
+                                            modeling tasks.
+                                        </p>
+                                        <div class="mil-link mil-dark mil-arrow-place mil-up">
+                                            <span>Read more</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- blog end -->
+
+                <!-- footer -->
+                {% include "../_components/footer.njk" %}
+                <!-- footer end -->
+
+                <!-- hidden elements -->
+                {% include "../_components/hidden-elements.njk" %}
+                <!-- hidden elements end -->
+
+            </div>
+        </div>
+        <!-- content -->
+    </div>
+    <!-- wrapper end -->
+
+    {% include "../_components/scripts.njk" %}
+
+</body>
+
+</html>

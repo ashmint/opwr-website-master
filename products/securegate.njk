@@ -1,0 +1,103 @@
+---
+title: SecureGate | OpenWire
+---
+<!DOCTYPE html>
+<html lang="zxx">
+
+{% include "../_components/head.njk" %}
+
+<body>
+
+    <!-- wrapper -->
+    <div class="mil-wrapper" id="top">
+
+        {% include "../_components/common-top.njk" %}
+
+        <!-- content -->
+        <div class="mil-content">
+            <div id="swupMain" class="mil-main-transition">
+
+                <!-- banner -->
+                <div class="mil-inner-banner">
+                    <div class="mil-banner-content mil-up">
+                        <div class="mil-animation-frame">
+                            <div class="mil-animation mil-position-4 mil-dark mil-scale" data-value-1="6" data-value-2="1.4"></div>
+                        </div>
+                        <div class="container">
+                            <ul class="mil-breadcrumbs mil-mb-60">
+                                <li><a href="/">Homepage</a></li>
+                                <li><a href="/products/">Products</a></li>
+                                <li><a href="securegate">SecureGate</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- banner end -->
+
+                <!-- service -->
+                <section id="service">
+                    <div class="container mil-p-120-90">
+                        <div class="row justify-content-between">
+                            <div class="col-lg-6 mil-relative mil-mb-90">
+                                <h1 class="mil-mb-60">Secure<span class="mil-thin">Gate</span></h1>
+                                <h4 class="mil-up mil-mb-30">Uncompromising <span class="mil-thin">Security</span> <br/>Unmatched <span class="mil-thin">Protection</span></h4>
+                                <p class="mil-up mil-mb-30">The Openwire SecureGate Firewall is a robust and versatile network security solution designed to safeguard your digital infrastructure. Available in two variants, a 2-port model and a 4-port model, the SecureGate Firewall runs on the powerful Pfsense® platform. SecureGate delivers exceptional performance, advanced threat detection, and seamless traffic management. Whether you’re securing a small office network or a large enterprise environment, the Openwire SecureGate Firewall provides the essential features you need to protect against cyber threats, manage access control, and ensure data integrity.</p>
+                                {% macro keypoints(title,content) -%}
+                                <div class="mil-accordion-group mil-up">
+                                    <div class="mil-accordion-menu">
+
+                                        <p class="mil-accordion-head">{{ title }}</p>
+
+                                        <div class="mil-symbol mil-h3">
+                                            <div class="mil-plus">+</div>
+                                            <div class="mil-minus">-</div>
+                                        </div>
+
+                                    </div>
+                                    <div class="mil-accordion-content">
+                                        <p class="mil-mb-30">{{ content }}</p>
+                                    </div>
+                                </div>
+                                {%- endmacro %}
+                                <div class="mt-5">
+                                    {{ keypoints("High-Performance Hardware", "The Openwire SecureGate Firewall is equipped with an Intel® J4125 Processor and 8GB of RAM, ensuring smooth operation even in demanding network environments.") }}
+                                    {{ keypoints("Pfsense Security Platform", "Running on the pfSense® platform, this firewall provides robust security features, including stateful packet inspection, intrusion detection, and VPN support.") }}
+                                    {{ keypoints("Advanced Threat Detection", "The SecureGate Firewall actively monitors network traffic, identifying and blocking malicious activity to protect your network from cyber threats.") }}
+                                    {{ keypoints("Customizable Rules and Policies", "Tailor firewall rules and policies to your specific needs, ensuring optimal security and performance.") }}
+                                </div>
+                                <div class="mil-up mil-adaptive-right">
+                                    <a href="https://docs.openwire.in/docs/datasheets/securegate" target="_blank" class="mil-link mil-dark mil-arrow-place" data-no-swup>
+                                        <span>Datasheet</span>
+                                    </a>
+                                </div>
+
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="mil-up mil-img-frame" style="padding-bottom: 160%;">
+                                    <img src="/assets/img/products/securegate-2.webp" alt="img" class="mil-scale" data-value-1="1" data-value-2="1.2">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- service end -->
+
+                <!-- footer -->
+                {% include "../_components/footer.njk" %}
+                <!-- footer end -->
+
+                <!-- hidden elements -->
+                {% include "../_components/hidden-elements.njk" %}
+                <!-- hidden elements end -->
+
+            </div>
+        </div>
+        <!-- content -->
+    </div>
+    <!-- wrapper end -->
+
+    {% include "../_components/scripts.njk" %}
+
+</body>
+
+</html>
