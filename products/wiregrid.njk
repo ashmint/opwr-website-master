@@ -157,51 +157,59 @@ title: Wiregrid | OpenWire
                                     <div class="mil-up mil-service-card-lg mil-other-card">
                                         <div class="mil-descr">
                                             <span class="mil-label mil-upper mil-accent mil-mb-15">Instance calculator</span>
-                                            <h4 class="mil-mb-30">Wiregrid cost estimator</h4>
-                                            <form id="wiregrid-calculator">
-                                                <div class="mil-mb-30">
-                                                    <label class="mil-mb-10" for="wiregrid-instance">Workload profile</label>
-                                                    <select id="wiregrid-instance" class="form-select">
-                                                        <option value="general" selected>General purpose &mdash; balanced, $0.12/hr</option>
-                                                        <option value="compute">Compute optimized &mdash; high CPU, $0.18/hr</option>
-                                                        <option value="memory">Memory optimized &mdash; large RAM, $0.24/hr</option>
-                                                        <option value="gpu">GPU accelerated &mdash; AI/ML, $1.20/hr</option>
-                                                    </select>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="mil-mb-30">
-                                                            <label class="mil-mb-10" for="wiregrid-instances">Instance count</label>
-                                                            <input id="wiregrid-instances" type="number" min="1" max="500" value="4" class="form-control">
-                                                        </div>
+                                                <h4 class="mil-mb-30">Wiregrid cost estimator</h4>
+                                                <form id="wiregrid-calculator">
+                                                <div class="wiregrid-slider-group">
+                                                    <div class="wiregrid-slider-label">
+                                                        <label class="mil-mb-5" for="wiregrid-vcpu">vCPU allocation</label>
+                                                        <span class="wiregrid-slider-value" id="wiregrid-vcpu-value">16 vCPU</span>
                                                     </div>
-                                                    <div class="col-md-6">
-                                                        <div class="mil-mb-30">
-                                                            <label class="mil-mb-10" for="wiregrid-hours">Hours per month</label>
-                                                            <input id="wiregrid-hours" type="number" min="1" max="744" value="720" class="form-control">
-                                                        </div>
+                                                    <input id="wiregrid-vcpu" type="range" min="1" max="32" step="1" value="16" class="wiregrid-slider">
+                                                    <div class="wiregrid-scale"><span>1</span><span>8</span><span>16</span><span>24</span><span>32</span></div>
+                                                </div>
+                                                <div class="wiregrid-slider-group">
+                                                    <div class="wiregrid-slider-label">
+                                                        <label class="mil-mb-5" for="wiregrid-ram">Memory footprint</label>
+                                                        <span class="wiregrid-slider-value" id="wiregrid-ram-value">16 GB RAM</span>
+                                                    </div>
+                                                    <input id="wiregrid-ram" type="range" min="0.5" max="32" step="0.5" value="16" class="wiregrid-slider">
+                                                    <div class="wiregrid-scale"><span>0.5 GB</span><span>8 GB</span><span>16 GB</span><span>24 GB</span><span>32 GB</span></div>
+                                                </div>
+                                                <div class="wiregrid-slider-group">
+                                                    <div class="wiregrid-slider-label">
+                                                        <label class="mil-mb-5" for="wiregrid-ssd">SSD capacity</label>
+                                                        <span class="wiregrid-slider-value" id="wiregrid-ssd-value">500 GB SSD</span>
+                                                    </div>
+                                                    <input id="wiregrid-ssd" type="range" min="100" max="4000" step="50" value="500" class="wiregrid-slider">
+                                                    <div class="wiregrid-scale"><span>100 GB</span><span>1 TB</span><span>2 TB</span><span>3 TB</span><span>4 TB</span></div>
+                                                </div>
+                                                <div class="wiregrid-summary mil-mb-20" id="wiregrid-summary">
+                                                    Sizing 16 vCPU, 16 GB RAM, 500 GB SSD. Rates shown in ₹ and include SSD pricing for each term.
+                                                </div>
+                                                <div class="mil-divider mil-mb-25"></div>
+                                                <div class="wiregrid-rate-grid mil-mb-10">
+                                                    <div class="wiregrid-rate-card wiregrid-rate-primary">
+                                                        <div class="wiregrid-pill">On-demand</div>
+                                                        <div class="wiregrid-rate-main" id="wiregrid-ondemand-hourly">₹0.00/hr</div>
+                                                        <p class="wiregrid-subtext">Monthly: <span id="wiregrid-ondemand-monthly">₹0.00</span></p>
+                                                    </div>
+                                                    <div class="wiregrid-rate-card">
+                                                        <div class="wiregrid-pill">1-year reserved</div>
+                                                        <div class="wiregrid-rate-main" id="wiregrid-1y-monthly">₹0.00/mo</div>
+                                                        <p class="wiregrid-subtext">12-month total <span id="wiregrid-1y-total">₹0.00</span></p>
+                                                    </div>
+                                                    <div class="wiregrid-rate-card">
+                                                        <div class="wiregrid-pill">2-year reserved</div>
+                                                        <div class="wiregrid-rate-main" id="wiregrid-2y-monthly">₹0.00/mo</div>
+                                                        <p class="wiregrid-subtext">24-month total <span id="wiregrid-2y-total">₹0.00</span></p>
+                                                    </div>
+                                                    <div class="wiregrid-rate-card">
+                                                        <div class="wiregrid-pill">3-year reserved</div>
+                                                        <div class="wiregrid-rate-main" id="wiregrid-3y-monthly">₹0.00/mo</div>
+                                                        <p class="wiregrid-subtext">36-month total <span id="wiregrid-3y-total">₹0.00</span></p>
                                                     </div>
                                                 </div>
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="mil-mb-30">
-                                                            <label class="mil-mb-10" for="wiregrid-storage">Storage footprint (TB)</label>
-                                                            <input id="wiregrid-storage" type="number" min="0" max="500" step="0.5" value="5" class="form-control">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="mil-mb-30">
-                                                            <label class="mil-mb-10" for="wiregrid-egress">Outbound data (TB)</label>
-                                                            <input id="wiregrid-egress" type="number" min="0" max="500" step="0.5" value="2" class="form-control">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="mil-divider mil-mb-30"></div>
-                                                <div class="mil-mb-20">
-                                                    <span class="mil-suptitle mil-mb-15">Estimated monthly total</span>
-                                                    <h3 class="mil-mb-10" id="wiregrid-total">$0.00</h3>
-                                                    <p class="mil-dark-soft mil-mb-0" id="wiregrid-breakdown">Update the inputs to project your Wiregrid costs.</p>
-                                                </div>
+                                                <p class="wiregrid-note mil-mb-10">Compute rates follow your vCPU/RAM mix. SSD charges use plan-specific per-GB pricing.</p>
                                                 <div class="mil-adaptive-right">
                                                     <a href="/contact/" class="mil-button mil-arrow-place">
                                                         <span>Discuss reserved pricing</span>
@@ -224,66 +232,89 @@ title: Wiregrid | OpenWire
                             return;
                         }
 
-                        var instanceSelect = document.getElementById('wiregrid-instance');
-                        var instancesInput = document.getElementById('wiregrid-instances');
-                        var hoursInput = document.getElementById('wiregrid-hours');
-                        var storageInput = document.getElementById('wiregrid-storage');
-                        var egressInput = document.getElementById('wiregrid-egress');
-                        var totalEl = document.getElementById('wiregrid-total');
-                        var breakdownEl = document.getElementById('wiregrid-breakdown');
+                        var vcpuInput = document.getElementById('wiregrid-vcpu');
+                        var ramInput = document.getElementById('wiregrid-ram');
+                        var ssdInput = document.getElementById('wiregrid-ssd');
 
-                        var instanceRates = {
-                            general: { label: 'general purpose', rate: 0.12 },
-                            compute: { label: 'compute optimized', rate: 0.18 },
-                            memory: { label: 'memory optimized', rate: 0.24 },
-                            gpu: { label: 'GPU accelerated', rate: 1.2 }
-                        };
-                        var storageRate = 32; // USD per TB-month
-                        var egressRate = 85; // USD per TB
+                        var vcpuValueEl = document.getElementById('wiregrid-vcpu-value');
+                        var ramValueEl = document.getElementById('wiregrid-ram-value');
+                        var ssdValueEl = document.getElementById('wiregrid-ssd-value');
+                        var summaryEl = document.getElementById('wiregrid-summary');
+
+                        var onDemandHourlyEl = document.getElementById('wiregrid-ondemand-hourly');
+                        var onDemandMonthlyEl = document.getElementById('wiregrid-ondemand-monthly');
+                        var oneYearMonthlyEl = document.getElementById('wiregrid-1y-monthly');
+                        var oneYearTotalEl = document.getElementById('wiregrid-1y-total');
+                        var twoYearMonthlyEl = document.getElementById('wiregrid-2y-monthly');
+                        var twoYearTotalEl = document.getElementById('wiregrid-2y-total');
+                        var threeYearMonthlyEl = document.getElementById('wiregrid-3y-monthly');
+                        var threeYearTotalEl = document.getElementById('wiregrid-3y-total');
+
+                        var inrFormatter = new Intl.NumberFormat('en-IN', {
+                            minimumFractionDigits: 2,
+                            maximumFractionDigits: 2
+                        });
 
                         calculator.addEventListener('submit', function (event) {
                             event.preventDefault();
                         });
 
-                        ['change', 'input'].forEach(function (eventName) {
-                            calculator.addEventListener(eventName, updateEstimate);
+                        ['input', 'change'].forEach(function (eventName) {
+                            calculator.addEventListener(eventName, calculateEstimate);
                         });
 
-                        updateEstimate();
+                        calculateEstimate();
 
-                        function readNumber(input, fallback) {
-                            var value = parseFloat(input.value);
-                            if (!Number.isFinite(value)) {
-                                return fallback;
-                            }
-                            if (input.min !== '') {
-                                value = Math.max(parseFloat(input.min), value);
-                            }
-                            if (input.max !== '') {
-                                value = Math.min(parseFloat(input.max), value);
-                            }
-                            return value;
+                        function formatINR(value) {
+                            return '\u20B9' + inrFormatter.format(value);
                         }
 
-                        function formatUnit(value) {
-                            return (Math.round(value * 10) % 10 === 0) ? value.toFixed(0) : value.toFixed(1);
+                        function updateLabels(vcpu, ram, ssd) {
+                            vcpuValueEl.textContent = vcpu.toLocaleString('en-IN') + ' vCPU';
+                            ramValueEl.textContent = ram.toLocaleString('en-IN') + ' GB RAM';
+                            ssdValueEl.textContent = ssd.toLocaleString('en-IN') + ' GB SSD';
+                            summaryEl.textContent = 'Sizing ' + vcpu.toLocaleString('en-IN') + ' vCPU, ' + ram.toLocaleString('en-IN') + ' GB RAM, ' + ssd.toLocaleString('en-IN') + ' GB SSD. Rates shown in \u20B9 and include SSD pricing for each term.';
                         }
 
-                        function updateEstimate() {
-                            var instanceKey = instanceSelect.value;
-                            var profile = instanceRates[instanceKey] || instanceRates.general;
-                            var instances = readNumber(instancesInput, 1);
-                            var hours = readNumber(hoursInput, 720);
-                            var storage = readNumber(storageInput, 0);
-                            var egress = readNumber(egressInput, 0);
+                        function calculateEstimate() {
+                            var V = parseInt(vcpuInput.value, 10) || 0;
+                            var R = parseFloat(ramInput.value) || 0;
+                            var S = parseInt(ssdInput.value, 10) || 0;
 
-                            var computeCost = profile.rate * instances * hours;
-                            var storageCost = storage * storageRate;
-                            var egressCost = egress * egressRate;
-                            var total = computeCost + storageCost + egressCost;
+                            updateLabels(V, R, S);
 
-                            totalEl.textContent = '$' + total.toFixed(2);
-                            breakdownEl.textContent = formatUnit(instances) + ' ' + profile.label + ' nodes for ' + formatUnit(hours) + ' hours | ' + formatUnit(storage) + ' TB storage | ' + formatUnit(egress) + ' TB egress.';
+                            var reserved1YComputeMonthly = (V * 584.48) + (R * 146.12);
+                            var onDemandComputeMonthly = reserved1YComputeMonthly * 1.25;
+                            var onDemandHourly = onDemandComputeMonthly / 730;
+
+                            var reserved2YComputeMonthly = reserved1YComputeMonthly * 0.92;
+                            var reserved3YComputeMonthly = reserved1YComputeMonthly * 0.85;
+
+                            var ssd1YMonthly = S * 1.61;
+                            var ssdOnDemandMonthly = S * 2.02;
+                            var ssd2YMonthly = S * 1.48;
+                            var ssd3YMonthly = S * 1.37;
+
+                            var oneYearMonthly = reserved1YComputeMonthly + ssd1YMonthly;
+                            var onDemandMonthly = onDemandComputeMonthly + ssdOnDemandMonthly;
+                            var twoYearMonthly = reserved2YComputeMonthly + ssd2YMonthly;
+                            var threeYearMonthly = reserved3YComputeMonthly + ssd3YMonthly;
+
+                            var oneYearTotal = oneYearMonthly * 12;
+                            var twoYearTotal = twoYearMonthly * 24;
+                            var threeYearTotal = threeYearMonthly * 36;
+
+                            onDemandHourlyEl.textContent = formatINR(onDemandHourly) + '/hr';
+                            onDemandMonthlyEl.textContent = formatINR(onDemandMonthly);
+
+                            oneYearMonthlyEl.textContent = formatINR(oneYearMonthly) + '/mo';
+                            oneYearTotalEl.textContent = formatINR(oneYearTotal);
+
+                            twoYearMonthlyEl.textContent = formatINR(twoYearMonthly) + '/mo';
+                            twoYearTotalEl.textContent = formatINR(twoYearTotal);
+
+                            threeYearMonthlyEl.textContent = formatINR(threeYearMonthly) + '/mo';
+                            threeYearTotalEl.textContent = formatINR(threeYearTotal);
                         }
                     });
                 </script>
