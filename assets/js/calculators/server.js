@@ -1,3 +1,8 @@
+;(function (root) {
+"use strict";
+
+var calculators = root.OpenwireCalculators = root.OpenwireCalculators || {};
+
 // List of hardware and their specifications
 const hardware = {
     cpus: [
@@ -284,6 +289,9 @@ function findResourceForUsers(users, performance_level) {
 
 // Calculate
 function calculate() {
+    if (!document.getElementById("server-calculator")) {
+        return
+    }
     let users = [parseInt($("#tier1").val()), parseInt($("#tier2").val()), parseInt($("#tier3").val())]
     let performance_level = $("#performanceLevel").val()
     let resource = findResourceForUsers(users, performance_level)
@@ -330,10 +338,20 @@ function calculate() {
     }
 }
 
-// Onload
-$(function () {
+function init() {
+    var form = document.getElementById("server-calculator")
+    if (!form || form.dataset.serverCalculatorInit === "true") {
+        return
+    }
+
+    form.dataset.serverCalculatorInit = "true"
+    form.addEventListener("submit", function (event) {
+        event.preventDefault()
+        calculate()
+    })
+
     // Parse values from url
-    let urlParams = new URLSearchParams(window.location.search);
+    let urlParams = new URLSearchParams(window.location.search)
     if (urlParams.has("tier1")) {
         $("#tier1").val(urlParams.get("tier1"))
     }
@@ -347,4 +365,14 @@ $(function () {
         $("#performanceLevel").val(urlParams.get("performanceLevel"))
     }
     calculate()
+}
+
+calculators.server = {
+    init: init,
+    calculate: calculate
+}
+
+$(function () {
+    calculators.server.init()
 })
+})(window)

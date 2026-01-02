@@ -46,7 +46,7 @@ excerpt: "Calculate resource requirements for your Vapor server."
                 <section id="calculator">
                     <div class="container mil-p-120-90">
                         <h3 class="mil-center mil-up mil-mb-120">Let's <span class="mil-thin">Calculate</span></h3>
-                        <form class="row justify-content-between" id="server-calculator" onsubmit="calculate(); return false;">
+                        <form class="row justify-content-between" id="server-calculator">
                             <div class="col-lg-6 mil-up mb-5">
                                 <div class="form-group mb-3">
                                     <label for="tier1">Number of Tier 1 Users:</label>
@@ -125,9 +125,7 @@ excerpt: "Calculate resource requirements for your Vapor server."
     <!-- wrapper end -->
 
     {% include "../_components/scripts.njk" %}
-    
-    <!-- server calculator js -->
-    <script src="/assets/js/calculators/server.js"></script>
+
 </body>
 
 </html>

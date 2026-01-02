@@ -1,3 +1,8 @@
+;(function (root) {
+"use strict";
+
+var calculators = root.OpenwireCalculators = root.OpenwireCalculators || {};
+
 const raids = {
     "JBOD": {
         isValid: (drives) => {
@@ -182,7 +187,19 @@ var raid = "JBOD"
 // Store drive layout
 var driveLayout = []
 
-$(function () {
+function init() {
+    var raidContainer = document.getElementById("raid")
+    if (!raidContainer || raidContainer.dataset.raidCalculatorInit === "true") {
+        return
+    }
+
+    raidContainer.dataset.raidCalculatorInit = "true"
+    raid = "JBOD"
+    driveLayout = []
+    $("#layout").empty()
+    $("#result").addClass("d-none")
+    $("#result-error").text("")
+
     // Handle change to raid
     $("#raid .choice-block").on("click", function () {
         $("#raid .choice-block").removeClass("active")
@@ -219,4 +236,14 @@ $(function () {
 
     // Set initial raid
     $("#raid .choice-block").eq(0).click()
+}
+
+calculators.raid = {
+    init: init,
+    calculate: calculate
+}
+
+$(function () {
+    calculators.raid.init()
 })
+})(window)

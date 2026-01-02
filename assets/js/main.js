@@ -147,6 +147,122 @@ $(function () {
     });
     /***************************
 
+    wiregrid calculator
+
+    ***************************/
+    function initWiregridCalculator() {
+        var calculator = document.getElementById('wiregrid-calculator');
+        if (!calculator || calculator.dataset.wiregridInit === 'true') {
+            return;
+        }
+
+        var vcpuInput = document.getElementById('wiregrid-vcpu');
+        var ramInput = document.getElementById('wiregrid-ram');
+        var ssdInput = document.getElementById('wiregrid-ssd');
+
+        var vcpuValueEl = document.getElementById('wiregrid-vcpu-value');
+        var ramValueEl = document.getElementById('wiregrid-ram-value');
+        var ssdValueEl = document.getElementById('wiregrid-ssd-value');
+        var summaryEl = document.getElementById('wiregrid-summary');
+
+        var onDemandHourlyEl = document.getElementById('wiregrid-ondemand-hourly');
+        var onDemandMonthlyEl = document.getElementById('wiregrid-ondemand-monthly');
+        var oneYearMonthlyEl = document.getElementById('wiregrid-1y-monthly');
+        var oneYearTotalEl = document.getElementById('wiregrid-1y-total');
+        var twoYearMonthlyEl = document.getElementById('wiregrid-2y-monthly');
+        var twoYearTotalEl = document.getElementById('wiregrid-2y-total');
+        var threeYearMonthlyEl = document.getElementById('wiregrid-3y-monthly');
+        var threeYearTotalEl = document.getElementById('wiregrid-3y-total');
+
+        if (!vcpuInput || !ramInput || !ssdInput || !vcpuValueEl || !ramValueEl || !ssdValueEl || !summaryEl ||
+            !onDemandHourlyEl || !onDemandMonthlyEl || !oneYearMonthlyEl || !oneYearTotalEl ||
+            !twoYearMonthlyEl || !twoYearTotalEl || !threeYearMonthlyEl || !threeYearTotalEl) {
+            return;
+        }
+
+        calculator.dataset.wiregridInit = 'true';
+
+        var inrFormatter = new Intl.NumberFormat('en-IN', {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+        });
+
+        calculator.addEventListener('submit', function (event) {
+            event.preventDefault();
+        });
+
+        ['input', 'change'].forEach(function (eventName) {
+            calculator.addEventListener(eventName, calculateEstimate);
+        });
+
+        calculateEstimate();
+
+        function formatINR(value) {
+            return '\u20B9' + inrFormatter.format(value);
+        }
+
+        function updateLabels(vcpu, ram, ssd) {
+            vcpuValueEl.textContent = vcpu.toLocaleString('en-IN') + ' vCPU';
+            ramValueEl.textContent = ram.toLocaleString('en-IN') + ' GB RAM';
+            ssdValueEl.textContent = ssd.toLocaleString('en-IN') + ' GB SSD';
+            summaryEl.textContent = 'Sizing ' + vcpu.toLocaleString('en-IN') + ' vCPU, ' + ram.toLocaleString('en-IN') + ' GB RAM, ' + ssd.toLocaleString('en-IN') + ' GB SSD. Rates shown in \u20B9 and include SSD pricing for each term.';
+        }
+
+        function calculateEstimate() {
+            var V = parseInt(vcpuInput.value, 10) || 0;
+            var R = parseFloat(ramInput.value) || 0;
+            var S = parseInt(ssdInput.value, 10) || 0;
+
+            updateLabels(V, R, S);
+
+            var reserved1YComputeMonthly = (V * 584.48) + (R * 146.12);
+            var onDemandComputeMonthly = reserved1YComputeMonthly * 1.25;
+            var onDemandHourly = onDemandComputeMonthly / 730;
+
+            var reserved2YComputeMonthly = reserved1YComputeMonthly * 0.92;
+            var reserved3YComputeMonthly = reserved1YComputeMonthly * 0.85;
+
+            var ssd1YMonthly = S * 1.61;
+            var ssdOnDemandMonthly = S * 2.02;
+            var ssd2YMonthly = S * 1.48;
+            var ssd3YMonthly = S * 1.37;
+
+            var oneYearMonthly = reserved1YComputeMonthly + ssd1YMonthly;
+            var onDemandMonthly = onDemandComputeMonthly + ssdOnDemandMonthly;
+            var twoYearMonthly = reserved2YComputeMonthly + ssd2YMonthly;
+            var threeYearMonthly = reserved3YComputeMonthly + ssd3YMonthly;
+
+            var oneYearTotal = oneYearMonthly * 12;
+            var twoYearTotal = twoYearMonthly * 24;
+            var threeYearTotal = threeYearMonthly * 36;
+
+            onDemandHourlyEl.textContent = formatINR(onDemandHourly) + '/hr';
+            onDemandMonthlyEl.textContent = formatINR(onDemandMonthly);
+
+            oneYearMonthlyEl.textContent = formatINR(oneYearMonthly) + '/mo';
+            oneYearTotalEl.textContent = formatINR(oneYearTotal);
+
+            twoYearMonthlyEl.textContent = formatINR(twoYearMonthly) + '/mo';
+            twoYearTotalEl.textContent = formatINR(twoYearTotal);
+
+            threeYearMonthlyEl.textContent = formatINR(threeYearMonthly) + '/mo';
+            threeYearTotalEl.textContent = formatINR(threeYearTotal);
+        }
+    }
+
+    function initPageCalculators() {
+        initWiregridCalculator();
+        if (window.OpenwireCalculators && window.OpenwireCalculators.server) {
+            window.OpenwireCalculators.server.init();
+        }
+        if (window.OpenwireCalculators && window.OpenwireCalculators.raid) {
+            window.OpenwireCalculators.raid.init();
+        }
+    }
+
+    initPageCalculators();
+    /***************************
+
     accordion
 
     ***************************/
@@ -375,9 +491,11 @@ $(function () {
     main menu
 
     ***************************/
-    $('.mil-has-children a').on('click', function () {
+    $('.mil-has-children > a').on('click', function (event) {
+        event.preventDefault();
+        event.stopPropagation();
         $('.mil-has-children ul').removeClass('mil-active');
-        $('.mil-has-children a').removeClass('mil-active');
+        $('.mil-has-children > a').removeClass('mil-active');
         $(this).toggleClass('mil-active');
         $(this).next().toggleClass('mil-active');
     });
@@ -829,9 +947,11 @@ $(function () {
         main menu
 
         ***************************/
-        $('.mil-has-children a').on('click', function () {
+        $('.mil-has-children > a').on('click', function (event) {
+            event.preventDefault();
+            event.stopPropagation();
             $('.mil-has-children ul').removeClass('mil-active');
-            $('.mil-has-children a').removeClass('mil-active');
+            $('.mil-has-children > a').removeClass('mil-active');
             $(this).toggleClass('mil-active');
             $(this).next().toggleClass('mil-active');
         });
@@ -1048,6 +1168,8 @@ $(function () {
                 },
             },
         });
+
+        initPageCalculators();
 
     });
 

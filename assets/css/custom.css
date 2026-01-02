@@ -251,6 +251,21 @@
     }
 }
 
+@media (max-width: 768px) {
+    .mil-breadcrumbs {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 6px 12px;
+        padding-left: 0;
+    }
+
+    .mil-breadcrumbs li {
+        margin-bottom: 0;
+        white-space: nowrap;
+    }
+}
+
 /* Ecosystem spacing */
 .ecosystem-wrap {
     padding-bottom: 120px;

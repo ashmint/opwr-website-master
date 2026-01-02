@@ -1827,7 +1827,7 @@ menu
 }
 
 .mil-main-menu ul li.mil-has-children ul.mil-active {
-  max-height: 200px;
+  max-height: 600px;
 }
 
 @media screen and (max-width: 1200px) {
