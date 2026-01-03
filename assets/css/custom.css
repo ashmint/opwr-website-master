@@ -266,6 +266,24 @@
     }
 }
 
+@media (max-width: 480px) {
+    .mil-infinite-show .swiper-slide {
+        padding: 0 12px;
+        box-sizing: border-box;
+    }
+
+    .mil-infinite-show .mil-partner-frame {
+        width: 100% !important;
+        max-width: 160px;
+        margin: 0 auto;
+    }
+
+    .mil-infinite-show .mil-partner-frame img {
+        width: 100%;
+        height: auto;
+    }
+}
+
 /* Ecosystem spacing */
 .ecosystem-wrap {
     padding-bottom: 120px;
