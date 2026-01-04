@@ -18,6 +18,52 @@
     font-family: 'OpenWire Logo Text';
 }
 
+.mil-logo.mil-logo-full {
+    display: inline-flex;
+    align-items: center;
+}
+
+.mil-logo.mil-logo-full .mil-logo-svg {
+    height: 1em;
+    width: auto;
+    display: block;
+}
+
+.mil-main-menu ul li.mil-has-children ul li.mil-menu-section {
+    margin-top: 18px;
+    padding-top: 24px;
+    margin-bottom: 10px;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgb(255, 152, 0);
+    font-weight: 600;
+    pointer-events: none;
+}
+
+.mil-main-menu ul li.mil-has-children ul li.mil-menu-section:first-child {
+    margin-top: 0;
+}
+
+.mil-main-menu ul li.mil-has-children ul li.mil-menu-highlight {
+    margin-top: 16px;
+}
+
+.mil-main-menu ul li.mil-has-children ul li.mil-menu-highlight a {
+    color: rgb(255, 152, 0);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+}
+
+.mil-main-menu ul li.mil-has-children ul li.mil-menu-highlight a .mil-menu-arrow {
+    font-size: 12px;
+    line-height: 1;
+    display: inline-block;
+    letter-spacing: 1px;
+}
+
 .img-fluid {
     max-width: 100%;
 }

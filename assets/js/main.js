@@ -494,10 +494,13 @@ $(function () {
     $('.mil-has-children > a').on('click', function (event) {
         event.preventDefault();
         event.stopPropagation();
+        var isActive = $(this).hasClass('mil-active');
         $('.mil-has-children ul').removeClass('mil-active');
         $('.mil-has-children > a').removeClass('mil-active');
-        $(this).toggleClass('mil-active');
-        $(this).next().toggleClass('mil-active');
+        if (!isActive) {
+            $(this).addClass('mil-active');
+            $(this).next().addClass('mil-active');
+        }
     });
     /***************************
 
@@ -950,10 +953,13 @@ $(function () {
         $('.mil-has-children > a').on('click', function (event) {
             event.preventDefault();
             event.stopPropagation();
+            var isActive = $(this).hasClass('mil-active');
             $('.mil-has-children ul').removeClass('mil-active');
             $('.mil-has-children > a').removeClass('mil-active');
-            $(this).toggleClass('mil-active');
-            $(this).next().toggleClass('mil-active');
+            if (!isActive) {
+                $(this).addClass('mil-active');
+                $(this).next().addClass('mil-active');
+            }
         });
         /***************************
 
