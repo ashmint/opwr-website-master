@@ -41,6 +41,39 @@ $(function () {
     var accent = 'rgba(255, 152, 0, 1)';
     var dark = '#000';
     var light = '#fff';
+    var logoObserver = null;
+
+    function setupLogoSwap() {
+        if (logoObserver) {
+            logoObserver.disconnect();
+            logoObserver = null;
+        }
+
+        document.body.classList.remove('mil-logo-compact');
+
+        if (!('IntersectionObserver' in window)) {
+            return;
+        }
+
+        var main = document.querySelector('.mil-main-transition');
+        if (!main) {
+            return;
+        }
+
+        var firstSection = main.querySelector('.mil-inner-banner, .mil-banner, section');
+        if (!firstSection) {
+            return;
+        }
+
+        logoObserver = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                var hasPassed = entry.boundingClientRect.bottom <= 0;
+                document.body.classList.toggle('mil-logo-compact', hasPassed);
+            });
+        }, { threshold: [0] });
+
+        logoObserver.observe(firstSection);
+    }
 
     /***************************
 
@@ -144,6 +177,7 @@ $(function () {
         $(".mil-dodecahedron").clone().appendTo(".mil-animation");
         $(".mil-lines").clone().appendTo(".mil-lines-place");
         // $(".mil-main-menu ul li.mil-active > a").clone().appendTo(".mil-current-page");
+        setupLogoSwap();
     });
     /***************************
 
@@ -769,6 +803,7 @@ $(function () {
             $(".mil-lines").clone().appendTo(".mil-lines-place");
             $(".mil-main-menu ul li.mil-active > a").clone().appendTo(".mil-current-page");
         });
+        setupLogoSwap();
         /***************************
 
         accordion

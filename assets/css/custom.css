@@ -21,12 +21,100 @@
 .mil-logo.mil-logo-full {
     display: inline-flex;
     align-items: center;
+    position: relative;
 }
 
-.mil-logo.mil-logo-full .mil-logo-svg {
+#service .mil-relative h1.mil-mb-60 {
+    margin-bottom: 30px;
+}
+
+.mil-frame .mil-frame-top .mil-logo.mil-logo-full {
+    font-size: 34px;
+    margin-right: 12px;
+}
+
+.mil-menu-frame .mil-frame-top .mil-logo.mil-logo-full {
+    font-size: 34px;
+    margin-right: 12px;
+}
+
+.mil-menu-frame.mil-active {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+@media screen and (max-width: 1200px) {
+    .mil-menu-frame .mil-menu-content {
+        padding: 120px 0 80px;
+    }
+
+    .mil-menu-frame .mil-main-menu {
+        height: auto;
+        align-items: flex-start;
+        justify-content: flex-start;
+        width: 100%;
+    }
+
+    .mil-menu-frame .mil-main-menu ul {
+        align-items: center;
+        width: 100%;
+        text-align: center;
+    }
+
+    .mil-menu-frame .mil-main-menu ul li {
+        width: 100%;
+    }
+
+    .mil-menu-frame .mil-main-menu ul li a {
+        justify-content: center;
+        text-align: center;
+        width: 100%;
+    }
+
+    .mil-menu-frame .mil-main-menu ul li.mil-has-children ul {
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 1201px) {
+    .mil-menu-frame .mil-menu-content {
+        padding: 140px 0 80px;
+    }
+
+    .mil-menu-frame .mil-main-menu {
+        height: auto;
+        align-items: flex-start;
+    }
+}
+
+.mil-logo.mil-logo-full .mil-logo-img {
+    display: block;
     height: 1em;
     width: auto;
-    display: block;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.mil-logo.mil-logo-full .mil-logo-img-full {
+    transform: translateY(0);
+}
+
+.mil-logo.mil-logo-full .mil-logo-img-icon {
+    height: 0.9em;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%) scale(0.88);
+    opacity: 0;
+}
+
+body.mil-logo-compact .mil-logo.mil-logo-full .mil-logo-img-full {
+    opacity: 0;
+    transform: translateY(0) scale(0.98);
+}
+
+body.mil-logo-compact .mil-logo.mil-logo-full .mil-logo-img-icon {
+    opacity: 1;
+    transform: translateY(-50%) scale(1);
 }
 
 .mil-main-menu ul li.mil-has-children ul li.mil-menu-section {
